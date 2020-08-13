@@ -1,33 +1,25 @@
 <br />
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <form  (ngSubmit)="onSubmit()">
-                    <div class="form-group">
-                        <label>Title</label>
-                        <input type="text" class="form-control" id="title" name="title" [(ngModel)]="blogPost.title">
-                    </div>
-                    <div class="form-group">
-                        <label>Featured Image (URL)</label>
-                        <input type="text" class="form-control" id="featuredImage" name="featuredImage" [(ngModel)]="blogPost.featuredImage">
-                    </div>
-                    <div class="form-group">
-                        <label>Post</label>
-                        <textarea class="form-control" style="min-height:200px" id="post" name="post" [(ngModel)]="blogPost.post" [innerHTML]="blogPost.post"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Category</label>
-                        <input type="text" class="form-control" id="category" name="category" [(ngModel)]="blogpost.category">
-                    </div>
-                    <div class="form-group">
-                        <label>Tags</label>
-                        <textarea class="form-control" id="tags" name="tags" [(ngNodel)]="tags"></textarea>
-                    </div>
-
-                    <div class="pull-right"><button class="btn btn-danger btn-sm" (click)="deletePost(blogPost._id)">Delete Post</button> &nbsp; <button
-                    type="submit" class="btn btn-success btn-sm">Update Post</button></div>
-                </form>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <a [routerLink]="['/admin/newPost']" class="btn btn-success btn-sm pull-right">+&nbsp;&nbsp;New Post</a><br /><br />
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Post Date</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let posts of blogPosts" (click)="rowClicked($event, posts._id)">
+                        <td>{{ posts.title }}</td>
+                        <td>{{ posts.postDate | date:'mediumDate' }}</td>
+                        <td>{{ posts.category }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
 <br />
