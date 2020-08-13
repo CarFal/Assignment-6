@@ -1,0 +1,10 @@
+<div class="widget tags">       
+    <header>
+      <h3 class="h6">Tags</h3>
+    </header>
+    <ul class="list-inline">
+      <li class="list-inline-item" *ngFor="let tax of tags">
+        <a [routerLink]="['/blog']" [queryParams]="{ tags: tax.substring(1) }" class="tag">{{ tax }}</a>
+    </li>
+    </ul>
+</div>
