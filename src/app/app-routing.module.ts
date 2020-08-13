@@ -13,11 +13,11 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'blog', component: BlogComponent},
   {path: 'post/:id', component: PostComponent},
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: '**', component: PageNotFoundComponent},
   {path: 'admin', component: PostsTableComponent},
   {path: 'admin/post/:id', component: EditPostComponent},
-  {path: 'admin/newPost', component: NewPostComponent}
+  {path: 'admin/newPost', component: NewPostComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({
